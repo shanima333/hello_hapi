@@ -12,9 +12,11 @@ pipeline {
     stages {
         stage('Initialize'){
             steps {  
-                def dockerHome = tool 'myDocker'
-                env.PATH = "${dockerHome}/bin:${env.PATH}"
-            }  
+                script {
+                    def dockerHome = tool name: 'myDocker', type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
+                    env.PATH = "${dockerHome}/bin:${env.PATH}"
+                }
+            }    
        }
         stage('Build') {
             steps {
