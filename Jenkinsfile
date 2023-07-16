@@ -25,7 +25,6 @@ pipeline {
         stage('Deploy') {
             steps {
                echo 'Deploying...'
-               sh 'npm run build' 
                sh 'npm start'
             }
         }    
